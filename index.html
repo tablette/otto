@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>otto a taxonomy tool</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        
+        <style>
+            .one { color: green;}
+            .two { text-decoration: line-through;}
+        </style>
+    </head>
+    <body>
+
+        <h1>otto</h1>
+        <div id="app">
+            <div class="hero">
+                <h2>{{ tagline }}</h2>
+                <div class="unpw">
+                    <p>sign in</p>
+                    <input type="text" :value="username">
+                    <input type="text" :value="password">
+                </div>
+            </div>
+            <p>{{ greet() }}</p>
+
+            <p>What would you like to do?</p>
+            <button>Create a new taxonomy</button>
+            <button>Edit an existing taxonomy</button>
+            <p>
+                <a :href="url">What is Information Architecture? | IA Institute</a> <!-- : = shorthand for v-bind: -->
+            </p>
+            <div :class="classes">Classes from Instance</div>
+            
+        </div>
+
+        <script src="app.js"></script>
+    </body>
+</html>
