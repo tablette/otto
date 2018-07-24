@@ -53,7 +53,7 @@ new Vue({ // note is or looks like object
             this.coords.x = e.offsetX // not this.data.coords.x, not this.x
             this.coords.y = e.offsetY
             if (this.coords.y === 150 && this.coords.y === 150) {
-                alert("Congrats you found the exact middle!")
+                alert("Congrats you found the exact middle!") // prevent execution before timer is started
             }
         },
         // for game - indirectly - passed as argument to startTimer below
