@@ -6,8 +6,8 @@ new Vue({ // note is or looks like object
         apology: `Sorry, we haven't learned that trick yet.`, // add html elements - include link to top
         username: 'Username',
         password: 'Password',
-        name1: 'Otto',
-        name2: 'User Userson',
+        nameF: 'First Name',
+        nameL: 'Last Name',
         numberOfLabels: 0,
         top: '#app',
         backToCreate: '#create',
@@ -19,6 +19,7 @@ new Vue({ // note is or looks like object
         }
     },
     methods: {
+        // for greeting on landing
         greet(){
             let date = new Date();
             let hour = date.getHours();
@@ -29,8 +30,9 @@ new Vue({ // note is or looks like object
             } else {
                 tod = 'evening';
             }
-            return `Hello and good ${tod} to you!`
+            return `Good ${tod}! Let's go.`
         },
+        // for typein - play with v-on click
         changeNumberOfLabels(number) {
             this.numberOfLabels += number
             if (this.numberOfLabels < 0) {
@@ -38,12 +40,15 @@ new Vue({ // note is or looks like object
                 this.numberOfLabels = 0;
             }
         },
+        // for typein - play with v-on dblclick
         confirm(){
             alert(`Got it! You have ${this.numberOfLabels} labels.`) // instead, append to DOM if button clicked
         },
+        // just for quick access to ready-made event properties
         logEvent(e){ // e = optional parameter: event object - call whatever you want e.g. e OR evt OR event
             console.log(e);
         },
+        // for game to play with event properties offsetX and offsetY (positioning)
         logCoords(e){
             this.coords.x = e.offsetX // not this.data.coords.x, not this.x
             this.coords.y = e.offsetY
@@ -51,14 +56,13 @@ new Vue({ // note is or looks like object
                 alert("Congrats you found the exact middle!")
             }
         },
+        // for game - indirectly - passed as argument to startTimer below
         timesUp(){
             alert("Time's up!");
         },
+        // for game to tell user when time is up
         startTimer(){
             setTimeout(this.timesUp, 3000); // stop execution if game is won
         },
-        updateName(e){
-            this.name1 = e.target.value // event target - in this case, the input box
-        }
     }
 })

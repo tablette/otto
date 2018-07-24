@@ -10,35 +10,43 @@
     </head>
     <body>
 
-        
         <div id="app">
-        <h1>{{ title }}</h1>    
-            <!-- hero / sign-in -->
+            <p>{{ greet() }}</p>
+            <h1>{{ title }}</h1>    
+            <!-- hero / "sign-in" -->
             <div class="hero">
                 <h2>{{ tagline }}</h2>
                 <div class="unpw">
                     <p>{{ greet() }}</p>
                     <input type="text" :value="username">
                     <input type="text" :value="password">
+                    <button type="submit">sign me in</button>
                 </div>
             </div>
             
-            <!-- demo -->
-            
-            <!-- name with 1-way binding to keyup - requires method and approximates 2-way data binding -->
-            <!-- no good reason to use this versus 2-way data binding -->
-            <h2>Name with 1-way binding - keyup</h2> 
-            <p>What's your name?</p>
-            <input type="text" :value="name1" @keyup="updateName"> <!-- not keypress -->
-            <p>Hi, {{ name1 }}!</p>
+            <!-- "sign up" / demo -->
+            <hr> <!-- get rid of ALL horizontal rules - temp for grouping only -->
+            <p>or</p>
+            <hr>
+            <h2>sign up</h2>
+            <p>
+                First name
+                <input type="text" v-model="nameF">
+            </p>
+            <p>
+                Last name
+                <input type="text" v-model="nameL">
+            </p>
+            <p>
+                Username
+                <input type="text" v-model="username">
+            </p>
+            <p>
+                <button type="submit">sign me up</button>
+            </p>
+            <hr>
+            <p>Hi, {{ nameF }}! We're glad you're here.</p> <!-- should append / should update throughout files -->
 
-            <!-- name with 2-way binding - does not require method -->
-            <!-- 2-way data binding: enter data >>> (1) transfer to vue instance > (2) transfer back to html -->
-            <h2>Name with 2-way binding </h2> 
-            <p>What's your name?</p>
-            <input type="text" v-model="name2">
-            <p>Hi, {{ name2 }}!</p> <!-- should append / should update throughout files -->
-            
             <!-- content -->
             <p>What would you like to do?</p>
             <a href="#create"><button>Create a new taxonomy</button></a> <!-- should append/appear -->
@@ -88,8 +96,6 @@
                 <p><a :href="top">Top</a></p>
             </div>
             
-
-
             <!-- SUNDRY DEBRIS -->
             <hr>
             <!-- binding to element the value of property called url -->

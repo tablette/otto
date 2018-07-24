@@ -137,7 +137,7 @@ ul {
 .unpw input {
     display: block;
     width: 50%;
-    margin: 0 auto;
+    margin: 1% auto;
 }
 
 /* DEMO */
@@ -145,12 +145,14 @@ button {
     background-color: green;
     border: none;
     color: white;
-    padding: 1% 2%;
+    /* padding: 0.4em 0.5em; */
+    padding: 5px 10px; /* make responsive */
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 1em;
-    margin: 2% 1%;
+    /* margin: 0.5em 0.4em; */
+    margin: 10px 5 px; /* make responsive */
     cursor: pointer;
 }
 
