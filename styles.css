@@ -157,11 +157,21 @@ button {
 /* CREATE A NEW TAXONOMY */
 .create-edit {
     width: 50%;
-    margin: 50% auto 50% auto;
+    height: 80%;
+    margin: 100% auto 100% auto;
     padding: 1%;
     background-color: yellowgreen;
 }
 
 .create-edit p {
     text-align: left;
+}
+
+/* SUNDRY */
+
+.canvas {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    background-color: yellowgreen;
 }

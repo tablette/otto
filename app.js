@@ -3,13 +3,19 @@ new Vue({ // note is or looks like object
     data: {
         title: "otto",
         tagline: "make finding content easy",
-        apology: "Sorry, we haven't learned that trick yet.",
+        apology: `Sorry, we haven't learned that trick yet.`, // add html elements - include link to top
         username: 'Username',
         password: 'Password',
         name: 'User Userson',
         numberOfLabels: 0,
+        top: '#app',
+        backToCreate: '#create',
         url: 'https://www.iainstitute.org/what-is-ia',
-        classes: ['one', 'two']
+        classes: ['one', 'two'],
+        coords: {
+            x: 0,
+            y: 0
+        }
     },
     methods: {
         greet(){
@@ -33,7 +39,22 @@ new Vue({ // note is or looks like object
         },
         confirm(){
             alert(`Got it! You have ${this.numberOfLabels} labels.`) // instead, append to DOM if button clicked
-            
+        },
+        logEvent(e){ // e = optional parameter: event object - call whatever you want e.g. e OR evt OR event
+            console.log(e);
+        },
+        logCoords(e){
+            this.coords.x = e.offsetX // not this.data.coords.x, not this.x
+            this.coords.y = e.offsetY
+            if (this.coords.y === 150 && this.coords.y === 150) {
+                alert("Congrats you found the exact middle!")
+            }
+        },
+        timesUp(){
+            alert("Time's up!");
+        },
+        startTimer(){
+            setTimeout(this.timesUp, 3000); // stop execution if game is won
         }
     }
 })

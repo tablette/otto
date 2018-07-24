@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>otto a taxonomy tool</title>
+        <title>otto the taxonomy tool</title>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <link rel="stylesheet" type="text/css" href="styles.css">
         <style>
@@ -37,8 +37,8 @@
                 <p>OK! How?</p>
                 <ul>
                     <li><a href="#typein">Type in OTTO directly</a></li>
-                    <li>Import from a file</li> <!-- ? -->
-                    <li>Scrape from a site</li> <!-- ? -->
+                    <li><a href="#import">Import from a file</a></li> <!-- ? -->
+                    <li><a href="#scrape">Scrape from a site</a></li> <!-- ? -->
                 </ul>
             </div>
 
@@ -54,27 +54,65 @@
                 <button v-on:dblclick="confirm()">Double-click to confirm</button>
             </div>
 
+            <div id="import" class="create-edit">
+                <h2>Import from a file</h2>            
+                <p>{{ apology }}</p>
+                <p><a :href="backToCreate">Go back</a></p>
+            </div>
+
+            <div id="scrape" class="create-edit">
+                <h2>Scrape from a site</h2>            
+                <p>{{ apology }}</p>
+                <p><a :href="backToCreate">Go back</a></p>
+            </div>
+
             <!-- Edit an existing taxonomy -->
             <div id="edit" class="create-edit">
                 <h2>Edit an existing taxonomy</h2>            
                 <p>{{ apology }}</p>
+                <p><a :href="top">Top</a></p>
             </div>
             
 
 
-            <!-- Sundry debris -->
+            <!-- SUNDRY DEBRIS -->
+            <hr>
+            <!-- binding to element the value of property called url -->
+            <h2>bind a url</h2>
             <p>
                 <a :href="url">What is Information Architecture? | IA Institute</a> <!-- : = shorthand for v-bind: -->
             </p>
+            <hr>
+            <!-- binding to element the value of property called classes -->
+            <h2>bind a class</h2>
             <div :class="classes">Classes from Instance</div>
+            <hr>
+            <!-- logging event info to console to view available event properties -->
+            <h2>log event info</h2>
+            <p>
+                <button @click="logEvent">Log Event Info</button>
+                <p>inspect console</p>
+            </p>
+            <hr>
+            <!-- creating a timer button -->
+            <h2>play a game</h2>
+            <p>Press the start the clock button, then try to find the exact middle of the canvas within three seconds.</p>
+            <button @click="startTimer">Start the Clock</button>
             
+            <!-- creating a canvas to view mouse position - offsetX and offsetY may be useful for drag and drop -->
+            <div class="canvas" @mousemove="logCoords">{{ coords.x }}, {{ coords.y }}</div>
+            <hr>
+
+            <!-- go back to top -->
+            <p><a :href="top">Top</a></p>
+
         </div> <!-- end #app-->
 
         <script src="app.js"></script>
     </body>
 </html>
 
-<!-- v-bind (or just :) -->
+<!-- v-bind: (or just :) -->
     <!-- bind vue object > property > value -->
-<!-- v-on -->
+<!-- v-on: (or just @) -->
     <!-- event e.g. click -->
