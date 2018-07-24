@@ -53,14 +53,6 @@ table {
 /*  */
 /*  */
 
-/* QUICK AND DIRTY STUFF */
-
-body {
-    font-family: sans-serif;
-    font-size: 1em;
-    line-height: 2em;
-}
-
 /* VUE JS CTRL DIV */
 
 #app {
@@ -68,7 +60,14 @@ body {
     text-align: center;
 }
 
-/* HEADER */
+/* GENERAL QUICK AND DIRTY STYLING */
+
+body {
+    font-family: sans-serif;
+    font-size: 1em;
+    line-height: 2em;
+    margin: 1%;
+}
 
 h1 {
     font-size: 2em;
@@ -79,6 +78,22 @@ h1 {
     vertical-align: middle;
     width: 100%;
 }
+
+h2 {
+    font-size: 1.5em;
+    line-height: 1.5em;
+    color: green;
+}
+
+ul {
+    list-style-type: square;
+    list-style-position: inside;
+    text-align: left;
+}
+
+/* HEADER */
+
+
 
 /* GLOBAL NAV */
 
@@ -92,9 +107,6 @@ h1 {
     height: 80%;
     color: white;
     position: relative;
-}
-
-.hero {
     background: url("dog.jpg") no-repeat;
     background-size: cover;
     background-color: rgba(0, 128, 0, 0.5);
@@ -105,17 +117,18 @@ h1 {
     padding: 1%;
     font-size: 1.5em;
     position: absolute;
-    top: 10%;
+    top: 1%;
     left: 50%;
     transform: translateX(-50%);
     width: 60%;
+    color: white;
 }
 
 .unpw {
     display: block;
     margin: 0 auto;
     position: absolute;
-    bottom: 10%;
+    bottom: 3%;
     left: 50%;
     transform: translateX(-50%);
     width: 60%;
@@ -123,10 +136,11 @@ h1 {
 
 .unpw input {
     display: block;
-    width: 100%;
+    width: 50%;
+    margin: 0 auto;
 }
 
-/* CONTENT */
+/* DEMO */
 button {
     background-color: green;
     border: none;
@@ -138,4 +152,16 @@ button {
     font-size: 1em;
     margin: 2% 1%;
     cursor: pointer;
+}
+
+/* CREATE A NEW TAXONOMY */
+.create-edit {
+    width: 50%;
+    margin: 50% auto 50% auto;
+    padding: 1%;
+    background-color: yellowgreen;
+}
+
+.create-edit p {
+    text-align: left;
 }

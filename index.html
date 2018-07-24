@@ -3,7 +3,6 @@
         <title>otto a taxonomy tool</title>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <link rel="stylesheet" type="text/css" href="styles.css">
-        
         <style>
             .one { color: green;}
             .two { text-decoration: line-through;}
@@ -11,28 +10,71 @@
     </head>
     <body>
 
-        <h1>otto a taxonomy tool</h1>
+        
         <div id="app">
+        <h1>{{ title }}</h1>    
+            <!-- hero / sign-in -->
             <div class="hero">
                 <h2>{{ tagline }}</h2>
                 <div class="unpw">
-                    <p>sign in</p>
+                    <p>{{ greet() }}</p>
                     <input type="text" :value="username">
                     <input type="text" :value="password">
                 </div>
             </div>
-            <p>{{ greet() }}</p>
-
+            
+            <!-- demo -->
+            <p>What's your name?</p>
+            <input type="text" v-model="name">
+            <p>Hi, {{ name }}!</p> <!-- should append / should update throughout files -->
             <p>What would you like to do?</p>
-            <button>Create a new taxonomy</button>
-            <button>Edit an existing taxonomy</button>
+            <a href="#create"><button>Create a new taxonomy</button></a> <!-- should append/appear -->
+            <a href="#edit"><button>Edit an existing taxonomy</button></a> <!-- should append/appear -->
+            
+            <!-- Create a new taxonomy -->
+            <div id="create" class="create-edit">
+                <h2>Create a new taxonomy</h2>            
+                <p>OK! How?</p>
+                <ul>
+                    <li><a href="#typein">Type in OTTO directly</a></li>
+                    <li>Import from a file</li> <!-- ? -->
+                    <li>Scrape from a site</li> <!-- ? -->
+                </ul>
+            </div>
+
+            <!-- Create a new taxonomy - typein -->
+            <div id="typein" class="create-edit">
+                <h2>Type in OTTO directly</h2>
+                <p>How many labels do you have?</p>
+                <button v-on:click="changeNumberOfLabels(1)">+1</button>
+                <button v-on:click="changeNumberOfLabels(-1)">-1</button>
+                <button v-on:click="changeNumberOfLabels(10)">+10</button>
+                <button v-on:click="changeNumberOfLabels(-10)">-10</button>
+                <p>{{ numberOfLabels }} labels</p>
+                <button v-on:dblclick="confirm()">Double-click to confirm</button>
+            </div>
+
+            <!-- Edit an existing taxonomy -->
+            <div id="edit" class="create-edit">
+                <h2>Edit an existing taxonomy</h2>            
+                <p>{{ apology }}</p>
+            </div>
+            
+
+
+            <!-- Sundry debris -->
             <p>
                 <a :href="url">What is Information Architecture? | IA Institute</a> <!-- : = shorthand for v-bind: -->
             </p>
             <div :class="classes">Classes from Instance</div>
             
-        </div>
+        </div> <!-- end #app-->
 
         <script src="app.js"></script>
     </body>
 </html>
+
+<!-- v-bind (or just :) -->
+    <!-- bind vue object > property > value -->
+<!-- v-on -->
+    <!-- event e.g. click -->
