@@ -24,9 +24,22 @@
             </div>
             
             <!-- demo -->
+            
+            <!-- name with 1-way binding to keyup - requires method and approximates 2-way data binding -->
+            <!-- no good reason to use this versus 2-way data binding -->
+            <h2>Name with 1-way binding - keyup</h2> 
             <p>What's your name?</p>
-            <input type="text" v-model="name">
-            <p>Hi, {{ name }}!</p> <!-- should append / should update throughout files -->
+            <input type="text" :value="name1" @keyup="updateName"> <!-- not keypress -->
+            <p>Hi, {{ name1 }}!</p>
+
+            <!-- name with 2-way binding - does not require method -->
+            <!-- 2-way data binding: enter data >>> (1) transfer to vue instance > (2) transfer back to html -->
+            <h2>Name with 2-way binding </h2> 
+            <p>What's your name?</p>
+            <input type="text" v-model="name2">
+            <p>Hi, {{ name2 }}!</p> <!-- should append / should update throughout files -->
+            
+            <!-- content -->
             <p>What would you like to do?</p>
             <a href="#create"><button>Create a new taxonomy</button></a> <!-- should append/appear -->
             <a href="#edit"><button>Edit an existing taxonomy</button></a> <!-- should append/appear -->
@@ -40,6 +53,7 @@
                     <li><a href="#import">Import from a file</a></li> <!-- ? -->
                     <li><a href="#scrape">Scrape from a site</a></li> <!-- ? -->
                 </ul>
+                <p><a :href="top">Top</a></p>
             </div>
 
             <!-- Create a new taxonomy - typein -->
@@ -52,6 +66,7 @@
                 <button v-on:click="changeNumberOfLabels(-10)">-10</button>
                 <p>{{ numberOfLabels }} labels</p>
                 <button v-on:dblclick="confirm()">Double-click to confirm</button>
+                <p><a :href="backToCreate">Go back</a></p>
             </div>
 
             <div id="import" class="create-edit">
@@ -116,3 +131,5 @@
     <!-- bind vue object > property > value -->
 <!-- v-on: (or just @) -->
     <!-- event e.g. click -->
+        <!-- click -->
+        <!-- mousemove -->

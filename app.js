@@ -6,7 +6,8 @@ new Vue({ // note is or looks like object
         apology: `Sorry, we haven't learned that trick yet.`, // add html elements - include link to top
         username: 'Username',
         password: 'Password',
-        name: 'User Userson',
+        name1: 'Otto',
+        name2: 'User Userson',
         numberOfLabels: 0,
         top: '#app',
         backToCreate: '#create',
@@ -55,6 +56,9 @@ new Vue({ // note is or looks like object
         },
         startTimer(){
             setTimeout(this.timesUp, 3000); // stop execution if game is won
+        },
+        updateName(e){
+            this.name1 = e.target.value // event target - in this case, the input box
         }
     }
 })
