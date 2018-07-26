@@ -177,3 +177,11 @@ button {
     margin: 1% auto;
     background-color: yellowgreen;
 }
+
+.one {
+    color: green;
+}
+
+.two {
+    text-decoration: line-through;
+}

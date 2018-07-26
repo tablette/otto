@@ -16,7 +16,9 @@ new Vue({ // note is or looks like object
         coords: {
             x: 0,
             y: 0
-        }
+        },
+        includesCategories: false,
+        doesNotIncludeCategories: true
     },
     methods: {
         // for greeting on landing
@@ -48,6 +50,13 @@ new Vue({ // note is or looks like object
         logEvent(e){ // e = optional parameter: event object - call whatever you want e.g. e OR evt OR event
             console.log(e);
         },
+        // for typein - play with v-if
+        toggleY(){
+            this.includesCategories = true
+        },
+        toggleN(){
+            this.includesCategories = false
+        },
         // for game to play with event properties offsetX and offsetY (positioning)
         logCoords(e){
             this.coords.x = e.offsetX // not this.data.coords.x, not this.x
@@ -63,6 +72,6 @@ new Vue({ // note is or looks like object
         // for game to tell user when time is up
         startTimer(){
             setTimeout(this.timesUp, 3000); // stop execution if game is won
-        },
+        }
     }
 })
