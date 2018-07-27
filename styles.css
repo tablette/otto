@@ -91,6 +91,10 @@ ul {
     text-align: left;
 }
 
+.inline-block h2 {
+    display: inline;
+}
+
 /* HEADER */
 
 
@@ -167,6 +171,16 @@ button {
 
 .create-edit p {
     text-align: left;
+}
+
+.typein-input {
+    margin-left: 0;
+    margin-top: 3%;
+    display: block;
+}
+
+.typein-list {
+    list-style-type: none;
 }
 
 /* SUNDRY */

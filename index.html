@@ -62,18 +62,49 @@
             <!-- Create a new taxonomy - typein -->
             <div id="typein" class="create-edit">
                 <h2>Type in OTTO directly</h2>
+                
+                <!-- eventually, remove - pretty useless -->
                 <p>How many labels do you have?</p>
                 <button v-on:click="changeNumberOfLabels(1)">+1</button>
                 <button v-on:click="changeNumberOfLabels(-1)">-1</button>
                 <button v-on:click="changeNumberOfLabels(10)">+10</button>
                 <button v-on:click="changeNumberOfLabels(-10)">-10</button>
+                
+                <!-- maybe good for something -->
                 <p>Does this include categories?</p>
                 <button @click="toggleY">yes</button>
                 <button @click="toggleN">no</button>
-                <p>{{ numberOfLabels }} labels</p>
-                <p v-if="includesCategories">including categories</p>
-                <p v-else-if="doesNotIncludeCategories">not including categories</p>
+
+                <!-- connect to length of labels property array -->
+                <p>{{ numberOfLabels }} labels
+                    <!-- may be useful, if categories are not intended to be labels (i.e. are navigation items only and have no corresponding content) -->
+                    <p v-if="includesCategories">including categories</p>
+                    <p v-else-if="doesNotIncludeCategories">not including categories</p>
+                </p>
+                <!-- issue: add categories -->
+
+
+                <!-- eventually, remove -->
                 <button v-on:dblclick="confirm()">Double-click to confirm</button>
+                <hr> <!-- style!!! -->
+
+                <!-- where the magic happens - add CATEGORIES and labels -->
+                <input class="typein-input" v-on:keyup.enter="addCategory"><p>add category</p>
+                <input class="typein-input" v-on:keyup.enter="addLabel"><p>add label</p>
+                
+                <!-- display -->
+                <!-- CATEGORIES -->
+                <h2>Your categories:</h2>
+                <ul class="typein-list">
+                   <li v-for="(category, index) in categories">{{ index + 1 }}. {{ category }}</li> <!-- convert input to object, then store corresponding categories as properties - eventually? --> 
+                </ul>
+                <!-- labels -->
+                <h2>Your labels:</h2>
+                <ul class="typein-list">
+                    <li v-for="(label, index) in labels">{{ index + 1 }}. {{ label }}</li> 
+                 </ul>
+
+                <!-- navigation -->
                 <p><a :href="backToCreate">Go back</a></p>
             </div>
 

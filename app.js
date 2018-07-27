@@ -18,7 +18,9 @@ new Vue({ // note is or looks like object
             y: 0
         },
         includesCategories: false,
-        doesNotIncludeCategories: true
+        doesNotIncludeCategories: true,
+        categories: [],
+        labels: []
     },
     methods: {
         // for greeting on landing
@@ -56,6 +58,17 @@ new Vue({ // note is or looks like object
         },
         toggleN(){
             this.includesCategories = false
+        },
+        // for typein - from an input element, add a CATEGORY
+        addCategory(event){
+            this.categories.push(event.target.value) // push to categories array
+            event.target.value = '' // clear input
+        },
+        // for typein - from an input element, add a label 
+        addLabel(event){
+            this.labels.push(event.target.value) // push to labels array
+            event.target.value = '' // clear input
+            // console.log("at least enter works") // test
         },
         // for game to play with event properties offsetX and offsetY (positioning)
         logCoords(e){
