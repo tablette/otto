@@ -72,48 +72,82 @@ body {
 h1 {
     font-size: 2em;
     line-height: 2em;
-    color: green;
-    padding: 0;
+    color: #ff4c4c; 
+    padding: 0; 
     text-align: center;
     vertical-align: middle;
     width: 100%;
+    width: 40%;
 }
 
 h2 {
     font-size: 1.5em;
     line-height: 1.5em;
-    color: green;
+    color: #0EBFE9;
+}
+
+h3 {
+    text-align: left;
+    margin: 3% 0;
 }
 
 ul {
     list-style-type: square;
     list-style-position: inside;
     text-align: left;
+    width: 50%;
 }
 
 .inline-block h2 {
     display: inline;
 }
 
-/* HEADER */
-
-
-
 /* GLOBAL NAV */
 
-    /* learn flexbox first */
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  .topnav a {
+    float: right;
+    color: #0EBFE9;
+    text-align: center;
+    padding: 1% 3%;
+    text-decoration: none;
+    font-size: 1em;
+  }
+  
+  .topnav a:hover {
+    background-color: #ff4c4c;
+    color: white;
+  }
+  
+  .topnav a.active {
+    background-color: #0EBFE9;
+    color: white;
+    font-size: 1.9em;
+    float: left;
+  }
+
+  #btm a {
+    display: inline-block;
+    float: none;
+    text-align: center;
+    width: 100%;
+  }
 
 /* HERO IMG */
 
 .hero {
     margin: 0 auto;
     width: 100%;
-    height: 80%;
+    height: 75%;
     color: white;
     position: relative;
     background: url("dog.jpg") no-repeat;
     background-size: cover;
-    background-color: rgba(0, 128, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
     background-blend-mode: lighten;
 }
 
@@ -128,25 +162,15 @@ ul {
     color: white;
 }
 
-.unpw {
+.content-block input {
     display: block;
-    margin: 0 auto;
-    position: absolute;
-    bottom: 3%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60%;
-}
-
-.unpw input {
-    display: block;
-    width: 50%;
+    width: 33%;
     margin: 1% auto;
 }
 
 /* DEMO */
 button {
-    background-color: green;
+    background-color: #333;
     border: none;
     color: white;
     /* padding: 0.4em 0.5em; */
@@ -156,20 +180,20 @@ button {
     display: inline-block;
     font-size: 1em;
     /* margin: 0.5em 0.4em; */
-    margin: 10px 5 px; /* make responsive */
+    margin: 10px 5px; /* make responsive */
     cursor: pointer;
 }
 
 /* CREATE A NEW TAXONOMY */
-.create-edit {
-    width: 50%;
-    height: 80%;
+.content-block {
+    width: 90%;
+    /* height: 100%; */ /* seems to just fix the width and make it inflexible */
     margin: 100% auto 100% auto;
     padding: 1%;
-    background-color: yellowgreen;
+    background-color: #0EBFE9;
 }
 
-.create-edit p {
+.content-block p {
     text-align: left;
 }
 
@@ -189,13 +213,20 @@ button {
     width: 300px;
     height: 300px;
     margin: 1% auto;
-    background-color: yellowgreen;
+    background-color: #0EBFE9;
 }
 
 .one {
-    color: green;
+    color: #0EBFE9;
 }
 
 .two {
     text-decoration: line-through;
 }
+
+/* tips */
+    /* softish red // hex code - #ff4c4c */
+    /* bright blue // hex code - #0EBFE9 / rgb code - (14, 191, 233) */
+    /* to center */
+        /* left: 50%; */
+        /* transform: translateX(-50%); */

@@ -7,48 +7,69 @@
     <body>
 
         <div id="app">
-            <h1>{{ title }}</h1>    
-            <!-- hero / "sign-in" -->
+            <div id="header">
+                <div class="topnav">
+                    <a class="active" href="#home">{{ title }}</a>  
+                    <a href="#signin">Sign In</a>
+                    <a href="#signup">Sign Up</a>
+                    <a href="#contact">Contact</a>
+                    <a href="https://medium.com/tablette">Blog</a>
+                    <a href="#about">About</a>
+                </div>
+            </div>
+
+            <!-- hero -->
             <div class="hero">
                 <h2>{{ tagline }}</h2>
-                <div class="unpw">
+            </div>
+
+            <div class="topnav" id="btm">
+                <a href="#getting-started">Quick Start</a>
+            </div>
+
+            <h3>{{ description }}</h3>      
+            
+            <!-- "sign up" / demo -->
+            <div class="content-block">
+
+                <div id="sign-up">
+                    <h2>sign up</h2>
+                    <p>
+                        First name
+                        <input type="text" v-model="nameF">
+                    </p>
+                    <p>
+                        Last name
+                        <input type="text" v-model="nameL">
+                    </p>
+                    <p>
+                        Username
+                        <input type="text" v-model="username">
+                    </p>
+                    <p>Hi, {{ nameF }}! We're glad you're here.</p> <!-- should append / should update throughout files -->
+                    <button type="submit">sign me up</button>
+                    
+                </div> <!-- end inner div -->
+                <p>or</p>
+                <div id="sign-in">
                     <p>{{ greet() }}</p>
                     <input type="text" :value="username">
                     <input type="text" :value="password">
                     <button type="submit">sign me in</button>
-                </div>
-            </div>
-            
-            <!-- "sign up" / demo -->
-            <hr> <!-- get rid of ALL horizontal rules - temp for grouping only -->
-            <p>or</p>
-            <hr>
-            <h2>sign up</h2>
-            <p>
-                First name
-                <input type="text" v-model="nameF">
-            </p>
-            <p>
-                Last name
-                <input type="text" v-model="nameL">
-            </p>
-            <p>
-                Username
-                <input type="text" v-model="username">
-            </p>
-            <p>
-                <button type="submit">sign me up</button>
-            </p>
-            <hr>
-            <p>Hi, {{ nameF }}! We're glad you're here.</p> <!-- should append / should update throughout files -->
+                </div> <!-- end inner div -->
+                
+            </div> <!-- end outer div -->
 
-            <!-- content -->
-            <p>What would you like to do?</p>
-            <a href="#create"><button>Create a new taxonomy</button></a> <!-- should append/appear -->
-            <a href="#edit"><button>Edit an existing taxonomy</button></a> <!-- should append/appear -->
-            
+            <div id="getting-started" class="content-block">
+                
+                <!-- content -->
+                <p>What would you like to do?</p>
+                <a href="#create"><button>Create a new taxonomy</button></a> <!-- should append/appear -->
+                <a href="#edit"><button>Edit an existing taxonomy</button></a> <!-- should append/appear -->
+            </div>
+
             <!-- Create a new taxonomy -->
-            <div id="create" class="create-edit">
+            <div id="create" class="content-block">
                 <h2>Create a new taxonomy</h2>            
                 <p>OK! How?</p>
                 <ul>
@@ -60,43 +81,35 @@
             </div>
 
             <!-- Create a new taxonomy - typein -->
-            <div id="typein" class="create-edit">
+            <div id="typein" class="content-block">
                 <h2>Type in OTTO directly</h2>
                 
-                <!-- eventually, remove - pretty useless -->
+                <!-- just play with vue! -->
                 <p>How many labels do you have?</p>
                 <button v-on:click="changeNumberOfLabels(1)">+1</button>
                 <button v-on:click="changeNumberOfLabels(-1)">-1</button>
                 <button v-on:click="changeNumberOfLabels(10)">+10</button>
                 <button v-on:click="changeNumberOfLabels(-10)">-10</button>
                 
-                <!-- maybe good for something -->
                 <p>Does this include categories?</p>
                 <button @click="toggleY">yes</button>
                 <button @click="toggleN">no</button>
-
-                <!-- connect to length of labels property array -->
+                
                 <p>{{ numberOfLabels }} labels
-                    <!-- may be useful, if categories are not intended to be labels (i.e. are navigation items only and have no corresponding content) -->
                     <p v-if="includesCategories">including categories</p>
                     <p v-else-if="doesNotIncludeCategories">not including categories</p>
                 </p>
-                <!-- issue: add categories -->
-
-
-                <!-- eventually, remove -->
                 <button v-on:dblclick="confirm()">Double-click to confirm</button>
-                <hr> <!-- style!!! -->
-
+                
                 <!-- where the magic happens - add CATEGORIES and labels -->
-                <input class="typein-input" v-on:keyup.enter="addCategory"><p>add category</p>
-                <input class="typein-input" v-on:keyup.enter="addLabel"><p>add label</p>
+                <input class="typein-input inline-block" v-on:keyup.enter="addCategory">add category
+                <input class="typein-input inline-block" v-on:keyup.enter="addLabel">add label
                 
                 <!-- display -->
                 <!-- CATEGORIES -->
                 <h2>Your categories:</h2>
                 <ul class="typein-list">
-                   <li v-for="(category, index) in categories">{{ index + 1 }}. {{ category }}</li> <!-- convert input to object, then store corresponding categories as properties - eventually? --> 
+                    <li v-for="(category, index) in categories">{{ index + 1 }}. {{ category }}</li>
                 </ul>
                 <!-- labels -->
                 <h2>Your labels:</h2>
@@ -108,20 +121,20 @@
                 <p><a :href="backToCreate">Go back</a></p>
             </div>
 
-            <div id="import" class="create-edit">
+            <div id="import" class="content-block">
                 <h2>Import from a file</h2>            
                 <p>{{ apology }}</p>
                 <p><a :href="backToCreate">Go back</a></p>
             </div>
 
-            <div id="scrape" class="create-edit">
+            <div id="scrape" class="content-block">
                 <h2>Scrape from a site</h2>            
                 <p>{{ apology }}</p>
                 <p><a :href="backToCreate">Go back</a></p>
             </div>
 
             <!-- Edit an existing taxonomy -->
-            <div id="edit" class="create-edit">
+            <div id="edit" class="content-block">
                 <h2>Edit an existing taxonomy</h2>            
                 <p>{{ apology }}</p>
                 <p><a :href="top">Top</a></p>

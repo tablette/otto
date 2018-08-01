@@ -3,6 +3,7 @@ new Vue({ // note is or looks like object
     data: {
         title: "otto",
         tagline: "make finding content easy",
+        description: "OTTO is a tool to help you develop a taxonomy to apply to the information architecture of your website to enhance the browse navigation experience of the website for the end user.",
         apology: `Sorry, we haven't learned that trick yet.`, // add html elements - include link to top
         username: 'Username',
         password: 'Password',
