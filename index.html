@@ -112,7 +112,7 @@
                 <!-- CATEGORIES -->
                 <h2>Your categories:</h2>
                 <ul class="typein-list">
-                    <li class="chip cat" v-for="(category, index) in categories">{{ index + 1 }}. {{ category }} 
+                    <li class="chip cat" v-for="(category, index) in categories">{{ category }} 
                         <!-- edit -->
                         <span class="editbtn" v-on:click="categories.splice(index, 1, editItem())">&#10000;</span>
                         <!-- delete -->
@@ -126,7 +126,7 @@
                 <!-- labels -->
                 <h2>Your labels:</h2>
                 <ul class="typein-list">
-                    <li class="chip lab" v-for="(label, index) in labels">{{ index + 1 }}. {{ label }} 
+                    <li class="chip lab" v-for="(label, index) in labels">{{ label }} 
                         <!-- edit -->
                         <span class="editbtn" v-on:click="labels.splice(index, 1, editItem())">&#10000;</span>
                         <!-- delete -->
