@@ -83,7 +83,7 @@ h1 {
 h2 {
     font-size: 1.5em;
     line-height: 1.5em;
-    color: #0EBFE9;
+    color: #333;
 }
 
 h3 {
@@ -100,6 +100,13 @@ ul {
 
 .inline-block h2 {
     display: inline;
+}
+
+.spacer-gentop {
+    margin-top: 3em;
+}
+.spacer-bottom {
+    margin-bottom: 3em;
 }
 
 /* GLOBAL NAV */
@@ -190,7 +197,7 @@ button {
     /* height: 100%; *//* seems to just fix the width and make it inflexible */
     margin: 100% 0;
     padding: 1%;
-    background-color: #0EBFE9;
+    background-color: #C0C0C0;
 }
 
 .content-block p {
@@ -229,8 +236,19 @@ button {
 }
 
 .lab {
-    background-color: #333;
+    background-color: #0EBFE9;
     color: white;
+}
+
+.editbtn {
+    padding-left: 10px;
+    /* font-weight: bold; */
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.editbtn:hover {
+    color: #000;
 }
 
 .closebtn {

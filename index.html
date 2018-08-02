@@ -87,7 +87,7 @@
                 <h2>Type in OTTO directly</h2>
                 
                 <!-- just play with vue! -->
-                <p>How many labels do you have?</p>
+                <!-- <p>How many labels do you have?</p>
                 <button v-on:click="changeNumberOfLabels(1)">+1</button>
                 <button v-on:click="changeNumberOfLabels(-1)">-1</button>
                 <button v-on:click="changeNumberOfLabels(10)">+10</button>
@@ -101,24 +101,38 @@
                     <p v-if="includesCategories">including categories</p>
                     <p v-else-if="doesNotIncludeCategories">not including categories</p>
                 </p>
-                <button v-on:dblclick="confirm()">Double-click to confirm</button>
+                <button v-on:dblclick="confirm()">Double-click to confirm</button> -->
                 
                 <!-- where the magic happens - add CATEGORIES and labels -->
                 <input class="typein-input" v-on:keyup.enter="addCategory">add <div class="chip cat mock-chip">category</div>
                 <input class="typein-input" v-on:keyup.enter="addLabel">add <div class="chip lab mock-chip">label</div>
                 
                 <!-- display -->
+                <p class="spacer-gentop"></p>
                 <!-- CATEGORIES -->
                 <h2>Your categories:</h2>
                 <ul class="typein-list">
-                    <li class="chip cat" v-for="(category, index) in categories">{{ index + 1 }}. {{ category }} <span class="closebtn" v-on:click="categories.splice(index, 1)">&times;</span></li>
+                    <li class="chip cat" v-for="(category, index) in categories">{{ index + 1 }}. {{ category }} 
+                        <!-- edit -->
+                        <span class="editbtn" v-on:click="categories.splice(index, 1, editItem())">&#10000;</span>
+                        <!-- delete -->
+                        <span class="closebtn" v-on:click="categories.splice(index, 1)">&times;</span>
+                    </li>
                 </ul>
+                
+                <p class="spacer-gentop"></p>
+                <!-- <p v-on:click="testing()">click to test print to console</p> -->
+
                 <!-- labels -->
                 <h2>Your labels:</h2>
                 <ul class="typein-list">
-                    <li class="chip lab" v-for="(label, index) in labels">{{ index + 1 }}. {{ label }} <span class="closebtn" v-on:click="labels.splice(index, 1)">&times;</span></li>
+                    <li class="chip lab" v-for="(label, index) in labels">{{ index + 1 }}. {{ label }} 
+                        <!-- edit -->
+                        <span class="editbtn" v-on:click="labels.splice(index, 1, editItem())">&#10000;</span>
+                        <!-- delete -->
+                        <span class="closebtn" v-on:click="labels.splice(index, 1)">&times;</span></li>
                  </ul>
-
+                <p class="spacer-bottom"></p>
                 <!-- navigation -->
                 <p><a :href="backToCreate">Go back</a></p>
                 <p><a :href="top">Top</a></p>
@@ -147,38 +161,36 @@
             </div>
             
             <!-- SUNDRY DEBRIS -->
-            <hr>
+            <!-- <hr> -->
             <!-- binding to element the value of property called url -->
-            <h2>bind a url</h2>
-            <p>
-                <a :href="url">What is Information Architecture? | IA Institute</a> <!-- : = shorthand for v-bind: -->
-            </p>
-            <hr>
+            <!-- <h2>bind a url</h2> -->
+            <!-- <p> -->
+            <!-- <a :href="url">What is Information Architecture? | IA Institute</a> -->
+            <!-- </p> -->
+            <!-- <hr> -->
             <!-- binding to element the value of property called classes -->
-            <h2>bind a class</h2>
-            <div :class="classes">Classes from Instance</div>
-            <hr>
+            <!-- <h2>bind a class</h2> -->
+            <!-- <div :class="classes">Classes from Instance</div> -->
+            <!-- <hr> -->
             <!-- logging event info to console to view available event properties -->
-            <h2>log event info</h2>
-            <p>
-                <button @click="logEvent">Log Event Info</button>
-                <p>inspect console</p>
-            </p>
-            <hr>
+            <!-- <h2>log event info</h2> -->
+            <!-- <p> -->
+            <!-- <button @click="logEvent">Log Event Info</button> -->
+            <!-- <p>inspect console</p> -->
+            <!-- </p> -->
+            <!-- <hr> -->
             <!-- creating a timer button -->
-            <h2>play a game</h2>
-            <p>Press the start the clock button, then try to find the exact middle of the canvas within three seconds.</p>
-            <button @click="startTimer">Start the Clock</button>
-            
+            <!-- <h2>play a game</h2> -->
+            <!-- <p>Press the start the clock button, then try to find the exact middle of the canvas within three seconds.</p> -->
+            <!-- <button @click="startTimer">Start the Clock</button> -->
             <!-- creating a canvas to view mouse position - offsetX and offsetY may be useful for drag and drop -->
-            <div class="canvas" @mousemove="logCoords">{{ coords.x }}, {{ coords.y }}</div>
-            <hr>
-
+            <!-- <div class="canvas" @mousemove="logCoords">{{ coords.x }}, {{ coords.y }}</div> -->
+            <!-- <hr> -->
             <!-- event modifier - keys -->
-            <button v-on:click.ctrl="confirm()">ctrl-click to confirm</button>
+            <!-- <button v-on:click.ctrl="confirm()">ctrl-click to confirm</button> -->
             <!-- event modifier - pure -->
-            <a href="http://www.google.com" @click.prevent="confirm()">click this link to confirm and not go to google</a>
-            <hr>
+            <!-- <a href="http://www.google.com" @click.prevent="confirm()">click this link to confirm and not go to google</a> -->
+            <!-- <hr> -->
 
             <!-- go back to top -->
             <p><a :href="top">Top</a></p>

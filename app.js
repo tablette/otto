@@ -87,6 +87,16 @@ new Vue({ // note is or looks like object
         // for game to tell user when time is up
         startTimer(){
             setTimeout(this.timesUp, 3000); // stop execution if game is won
+        },
+        editItem(){
+            // attempt 1 - use a simple prompt
+            let editedText = prompt("Change to:");
+            return editedText;
+            // attempt 2 - add input field, and on click capture input, remove input field and return input
+            // ...
+        },
+        testing(){
+            console.log(this.categories);
         }
     }
 })
