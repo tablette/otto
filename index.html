@@ -61,11 +61,12 @@
             </div> <!-- end outer div -->
 
             <div id="getting-started" class="content-block">
-                
                 <!-- content -->
                 <p>What would you like to do?</p>
                 <a href="#create"><button>Create a new taxonomy</button></a> <!-- should append/appear -->
                 <a href="#edit"><button>Edit an existing taxonomy</button></a> <!-- should append/appear -->
+                <p><a :href="top">Go back</a></p>
+                <p><a :href="top">Top</a></p>
             </div>
 
             <!-- Create a new taxonomy -->
@@ -77,6 +78,7 @@
                     <li><a href="#import">Import from a file</a></li> <!-- ? -->
                     <li><a href="#scrape">Scrape from a site</a></li> <!-- ? -->
                 </ul>
+                <p><a :href="backToGettingStarted">Go back</a></p>
                 <p><a :href="top">Top</a></p>
             </div>
 
@@ -102,41 +104,45 @@
                 <button v-on:dblclick="confirm()">Double-click to confirm</button>
                 
                 <!-- where the magic happens - add CATEGORIES and labels -->
-                <input class="typein-input inline-block" v-on:keyup.enter="addCategory">add category
-                <input class="typein-input inline-block" v-on:keyup.enter="addLabel">add label
+                <input class="typein-input" v-on:keyup.enter="addCategory">add <div class="chip cat mock-chip">category</div>
+                <input class="typein-input" v-on:keyup.enter="addLabel">add <div class="chip lab mock-chip">label</div>
                 
                 <!-- display -->
                 <!-- CATEGORIES -->
                 <h2>Your categories:</h2>
                 <ul class="typein-list">
-                    <li v-for="(category, index) in categories">{{ index + 1 }}. {{ category }}</li>
+                    <li class="chip cat" v-for="(category, index) in categories">{{ index + 1 }}. {{ category }} <span class="closebtn" v-on:click="categories.splice(index, 1)">&times;</span></li>
                 </ul>
                 <!-- labels -->
                 <h2>Your labels:</h2>
                 <ul class="typein-list">
-                    <li v-for="(label, index) in labels">{{ index + 1 }}. {{ label }}</li> 
+                    <li class="chip lab" v-for="(label, index) in labels">{{ index + 1 }}. {{ label }} <span class="closebtn" v-on:click="labels.splice(index, 1)">&times;</span></li>
                  </ul>
 
                 <!-- navigation -->
                 <p><a :href="backToCreate">Go back</a></p>
+                <p><a :href="top">Top</a></p>
             </div>
 
             <div id="import" class="content-block">
                 <h2>Import from a file</h2>            
                 <p>{{ apology }}</p>
                 <p><a :href="backToCreate">Go back</a></p>
+                <p><a :href="top">Top</a></p>
             </div>
 
             <div id="scrape" class="content-block">
                 <h2>Scrape from a site</h2>            
                 <p>{{ apology }}</p>
                 <p><a :href="backToCreate">Go back</a></p>
+                <p><a :href="top">Top</a></p>
             </div>
 
             <!-- Edit an existing taxonomy -->
             <div id="edit" class="content-block">
                 <h2>Edit an existing taxonomy</h2>            
                 <p>{{ apology }}</p>
+                <p><a :href="backToGettingStarted">Go back</a></p>
                 <p><a :href="top">Top</a></p>
             </div>
             

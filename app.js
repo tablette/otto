@@ -11,6 +11,7 @@ new Vue({ // note is or looks like object
         nameL: 'Last Name',
         numberOfLabels: 0,
         top: '#app',
+        backToGettingStarted: '#getting-started',
         backToCreate: '#create',
         url: 'https://www.iainstitute.org/what-is-ia',
         classes: ['one', 'two'],
